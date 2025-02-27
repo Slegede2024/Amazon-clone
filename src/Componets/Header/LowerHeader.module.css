@@ -1,0 +1,39 @@
+/* LowerHeader.module.css */
+.lowerHeader {
+  background-color: #232f3e; 
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.navItem:hover {
+  text-decoration: underline;
+}
+
+.menuIcon {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.menuIcon p {
+  margin-left: 5px;
+}
