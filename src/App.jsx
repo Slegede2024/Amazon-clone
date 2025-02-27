@@ -2,6 +2,7 @@ import Header from "./Componets/Header/Header"
 import LowerHeader from "./Componets/Header/LowerHeader"
 import Carousel from "./Componets/caraousel/CarouselEffect"
 import Catagory from "./Componets/Category/Category"
+import Product from "./Componets/Product/Product";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <LowerHeader />
       <Carousel />
       <Catagory />
+      <Product />
      
       
     </div>
