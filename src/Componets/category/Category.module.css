@@ -44,7 +44,7 @@
 .catagory img {
   width: 100%;
   height: auto; /* Auto height to maintain aspect ratio */
-  max-height: 200px; /* 
+  max-height: 200px; /* Control max height */
   object-fit: contain; /* Ensures the entire image is visible */
   border-radius: 8px;
 }
