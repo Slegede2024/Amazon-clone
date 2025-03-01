@@ -1,19 +1,20 @@
-import styles from "./LowerHeader.module.css";
+/* eslint-disable react/no-unescaped-entities */
+// import React from "react";
+import style from "../Header/Header.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
-
 function LowerHeader() {
   return (
-    <div className={styles.lowerHeader}>
-      <ul className={styles.navList}>
-        <li className={`${styles.navItem} ${styles.menuIcon}`}>
+    <div className={style.lower_header}>
+      <ul>
+        <li>
           <AiOutlineMenu />
           <p>All</p>
         </li>
-        <li className={styles.navItem}>Todays Deals</li>
-        <li className={styles.navItem}>Customer Service</li>
-        <li className={styles.navItem}>Registry</li>
-        <li className={styles.navItem}>Gift Cards</li>
-        <li className={styles.navItem}>Sell</li>
+        <li>Today's Deals</li>
+        <li>Customer service</li>
+        <li>Registry</li>
+        <li>Gift Cards</li>
+        <li>Sell</li>
       </ul>
     </div>
   );
