@@ -38,7 +38,7 @@ body {
   margin-left: 10px;
 }
 .delivery p {
-  font-size: 13px;
+  font-size: 14px;
   color: lightgray;
 }
 .delivery span {
@@ -49,9 +49,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  position: static;
+  float: none;
+  width: fit-content;
 }
 .delivery div span {
-  font-weight: bold;
+  font-size: 20px;
+  margin-top: auto;
+
 }
 
 .search {

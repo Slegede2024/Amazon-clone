@@ -1,4 +1,5 @@
-
+/* eslint-disable no-unused-vars */
+// import React from 'react';
 import Header from './Componets/Header/Header';
 import CarouselEffect from './Componets/caraousel/CarouselEffect';
 import Category from './Componets/Category/CategoryCard';
