@@ -1,16 +1,20 @@
 /* eslint-disable react/prop-types */
-// import React from "react";
-import style from "./Category.module.css";
-function Category({ data }) {
+
+import style from "../category/Category.module.css";
+import { Link } from "react-router-dom";
+
+function CategoryCard({data}) {
+  console.log(data);
+  
   return (
     <div className={style.catagory}>
-      <a href="">
+      <Link to={`/category/${data.Category}`}>
         <span>{data.title}</span>
         <img src={data.imageLink} alt="" />
         <p>Shop Now</p>
-      </a>
+      </Link>
     </div>
   );
 }
 
-export default Category;
+export default CategoryCard;

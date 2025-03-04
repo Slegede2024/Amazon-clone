@@ -1,6 +1,6 @@
 // import React from "react";
 import { catagoryinfo } from "./CategoryFullInfos";
-import Category from "./CategoryCard";
+import Category from "../category/CategoryCard";
 import style from "../category/Category.module.css";
 function CategoryList() {
   return (
