@@ -1,81 +1,82 @@
-/* Amazon-like Product Card Styles */
 
-.card_container {
+ .card_container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  justify-content: space-between;
+  width: 250px;
+  padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
-  width: 250px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
 }
-
-.card_container:hover .button {
-  display: block;;
+.card_container img{
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    object-fit: contain;
+}
+.card_container:hover .button{
+    display: block;
 }
 
-.card_container a img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  padding: 10px;
-  /* border-radius: 4px; */
-}
-
-.card_container h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #111;
-  margin: 10px 0;
-  text-align: center;
-}
-
-.rating {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #ffa41c;
-}
-
-.rating small {
-  font-size: 12px;
-  color: #555;
-}
 
 .button {
-  display: none;
-  background-color: #ffd814;
+    display: none;
+  background-color: #FF9900;
+  color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 15px;
   font-size: 14px;
   font-weight: bold;
-  color: #111;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s;
-  margin-top: 10px;
-  width: 100%;
-  margin: 10px 0;
-  /* position: absolute; */
-  bottom: 0;
-  left: 0;
 }
 
 .button:hover {
-  background-color: #f7ca00;
+  background-color: #F78D00;
 }
 
-/* Amazon-like Responsive Product Grid */
-.product_container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+.rating{
+    display: flex;
+    align-items: center;
+    padding: 10px  0px;
+}
+
+
+
+/* parent container */
+.product_contianer
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    max-width: 1450px;
+    margin: 100px;
+    gap: 75px;
+    justify-items: center;
+}
+/* for flexed style */
+.product_flexed{
+    box-shadow: none;
+    height: auto;
+    display: flex;
+    gap:50px;
+    width: 100%;
+}
+.product_flexed  h3{
+    padding:25px 0px ;
+}
+.product_flexed .button{
+display: block;
+position: static;
+width: 150px;
+margin-right: 40px;
+}
+.product_flexed img{
+    width: 300px !important;
+    height: auto;
+    object-fit: contain;
 }

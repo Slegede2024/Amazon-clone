@@ -8,63 +8,44 @@ import style from "./Results.module.css";
 import Loader from "../../Componets/Loader/Loader";
 
 function Results() {
-  const { categoryName } = useParams(); // Extract category from URL
-  console.log("🔍 useParams output:", useParams());
-  console.log("📌 Extracted categoryName:", categoryName);
+  const { categoryName } = useParams();
   const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  console.log("useParams output:", useParams()); // Debugging
-  console.log("Extracted categoryName:", categoryName);
-
+  const [isLoading, setIsLoading] = useState(true);
+  //   console.log(categoryName)
   useEffect(() => {
-    if (!categoryName) {
-      console.warn("categoryName is undefined. Skipping API call.");
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
+    setIsLoading(true);
+    // https://fakestoreapi.com/products/category/jewelery
     axios
       .get(`${productUrl}/products/category/${categoryName}`)
       .then((res) => {
-        console.log("API Response:", res.data); // Debugging
+        // console.log(res)
         setResults(res.data);
+        setIsLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching products:", err);
-        setError("Failed to fetch products. Please try again.");
-      })
-      .finally(() => setLoading(false));
+        console.log(err);
+      });
   }, []);
-
   return (
     <LayOut>
-      <div className={style.container}>
-        <h1 className={style.heading}>Results</h1>
-        <p className={style.categoryPath}>
-          Category / {categoryName || "Unknown"}
-        </p>
+      <div>
+        <h1 style={{ padding: "10px" }}>Results</h1>
+        <p style={{ padding: "10px" }}>Category/{categoryName}</p>
         <hr />
-
-        {loading ? ( 
+        {isLoading ? (
           <Loader />
-        ) : results.length === 0 ? (
-          <p className={style.loadingMessage}>Loading products...</p>
-        ) : error ? (
-          <p className={style.errorMessage}>{error}</p>
-        ) : results.length > 0 ? (
-          <div className={style.productsContainer}>
-            {results.map((singleProduct) => (
-              <ProductCard key={singleProduct.id} data={singleProduct} />
-            ))}
-          </div>
         ) : (
-          <p className={style.noResultsMessage}>
-            No products found for this category.
-          </p>
+          <div className={style.products_container}>
+            {results?.map((singleProduct) => {
+              return (
+                <ProductCard
+                  key={singleProduct.id}
+                  data={singleProduct}
+                  renderADD={true}
+                />
+              );
+            })}
+          </div>
         )}
       </div>
     </LayOut>

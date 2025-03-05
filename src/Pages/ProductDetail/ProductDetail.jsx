@@ -1,68 +1,41 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import style from "./productDetail.module.css"; // ✅ Import CSS module
+import {productUrl} from "../../Api/endepoint"
+import LayOut from "../../Componets/LayOut/LayOut";
+import ProductCard from "../../Componets/Product/ProductCard";
+import Loader from "../../Componets/Loader/Loader";
 
 function ProductDetail() {
-  const { productId } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  console.log("🔍 Debug: Product ID from URL:", productId);
-
+  const { productId } = useParams()
+  // console.log(productId)
+  const [product, setProduct] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    if (!productId) {
-      console.error("❌ Invalid product ID:", productId);
-      setError("Invalid product ID");
-      setLoading(false);
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
+    setIsLoading(true)
+    //https://fakestoreapi.com/products/7
     axios
-      .get(`https://fakestoreapi.com/products/${productId}`)
-      .then((response) => {
-        console.log("✅ API Response:", response.data);
-
-        if (response.data && Object.keys(response.data).length > 0) {
-          setProduct(response.data);
-        } else {
-          setError("Product not found");
-        }
-        setLoading(false);
+      .get(`${productUrl}/products/${productId}`)
+      .then((res) => {
+        // console.log(res)
+        setProduct(res.data)
+        setIsLoading(false)
       })
       .catch((err) => {
-        console.error("⚠️ Error fetching product:", err);
-        setError("Product not found or error fetching data");
-        setLoading(false);
-      });
-  }, [productId]);
-
-  if (loading) return <p className={style.loading}>Loading...</p>;
-  if (error) return <p className={style.error}>{error}</p>;
-
+        console.log(err)
+      })
+  },[])
   return (
-    <div className={style.container}>
-      {product ? (
-        <>
-          <h1 className={style.title}>{product.title}</h1>
-          <img
-            className={style.image}
-            src={product.image}
-            alt={product.title}
-          />
-          <p className={style.description}>{product.description}</p>
-          <p className={style.price}>Price: ${product.price}</p>
-          <p className={style.category}>Category: {product.category}</p>
-        </>
+    <LayOut>
+      {isLoading ? (
+        <Loader />
       ) : (
-        <p className={style.error}>Product not found</p>
+        <ProductCard data={product} flex={true} renderDesc={true} renderADD ={true}/>
       )}
-    </div>
-  );
+    </LayOut>
+  )
 }
 
 export default ProductDetail;
+
+

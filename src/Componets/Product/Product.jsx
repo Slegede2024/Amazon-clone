@@ -4,29 +4,23 @@ import style from "./product.module.css";
 import ProductCard from "./ProductCard";
 
 function Product() {
-  const [products, setProducts] = useState([]);
-
+  const [products, setProducts] = useState();
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        console.log("Fetched Products:", res.data);
+        // console.log(res);
         setProducts(res.data);
       })
       .catch((err) => {
-        console.error("Error fetching products:", err);
+        console.log(err);
       });
   }, []);
-
   return (
-    <div className={style.product_container}>
-      {products.length > 0 ? (
-        products.map((product) => (
-          <ProductCard key={product.id} data={product} />
-        ))
-      ) : (
-        <p>Loading products...</p>
-      )}
+    <div className={style.product_contianer}>
+      {products?.map((single_product, i) => {
+        return <ProductCard key={i} data={single_product} renderADD={true} />;
+      })}
     </div>
   );
 }
