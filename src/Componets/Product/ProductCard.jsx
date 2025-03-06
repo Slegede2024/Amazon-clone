@@ -1,41 +1,45 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import Rating from "@mui/material/Rating";
-import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
-import { DataContext } from "../DataProvider/DataProvidere"; // Ensure correct path
-import { Type } from "../../Utility/action.type";
+import  { useContext } from "react";
 import style from "./product.module.css";
-
-function ProductCard({ data }) {
-  const { image, title, id, rating, price } = data;
+import Rating from "@mui/material/Rating";
+import CurrencyFormat from "../../Componets/CurrencyFormat/CurrencyFormat";
+import { Link } from "react-router-dom";
+import { DataContext } from "../DataProvider/DataProvidere";
+import { Type } from "../../Utility/action.type";
+function ProductCard({ data, flex, renderDesc, renderADD }) {
+  // console.log(data);
+  const { image, title, id, rating, price, description } = data;
+  // eslint-disable-next-line no-unused-vars
   const [state, dispatch] = useContext(DataContext);
-
   const addToCart = () => {
     dispatch({
       type: Type.ADD_TO_BASKET,
-      item: { image, title, id, rating, price },
+      item: { image, title, id, rating, price, description },
     });
   };
-
   return (
-    <div className={style.card_container}>
-      <Link to={`/products/${id}`} className={style.image_link}>
-        <img src={image} alt={title} className={style.product_image} />
+    <div
+      className={`${style.card_container} ${flex ? style.product_flexed : ""}`}
+    >
+      <Link to={`/products/${id}`}>
+        <img src={image} alt="" />
       </Link>
-      <div className={style.product_details}>
-        <h3 className={style.product_title}>{title}</h3>
-        <div className={style.rating_container}>
-          <Rating value={rating?.rate || 0} precision={0.1} readOnly />
-          <small className={style.rating_count}>({rating?.count || 0})</small>
+      <div>
+        <h3>{title}</h3>
+        {renderDesc && <div style={{ maxWidth: "700px" }}>{description}</div>}
+        <div className={style.rating}>
+          <Rating value={rating.rate} precision={0.1} />
+          <small>{rating.count}</small>
         </div>
-        <div className={style.price_container}>
+        <div>
+          {/* <p>{price}</p> */}
           <CurrencyFormat amount={price} />
         </div>
-        <button className={style.button} onClick={addToCart}>
-          Add to Cart
-        </button>
+        {renderADD && (
+          <button className={style.button} onClick={addToCart}>
+            Add to cart
+          </button>
+        )}
       </div>
     </div>
   );

@@ -1,11 +1,8 @@
 
  .card_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   width: 250px;
-  padding: 15px;
+  position: relative;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
@@ -28,12 +25,16 @@
   background-color: #FF9900;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 5px 10px;
+  width: 100%;
+  margin: 10px 0;
   font-size: 14px;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.2s;
+  bottom: 0;
+  left: 0;
 }
 
 .button:hover {
@@ -79,4 +80,12 @@ margin-right: 40px;
     width: 300px !important;
     height: auto;
     object-fit: contain;
+}
+
+
+@media screen and (max-width: 768px) {
+   .product_flexed{
+       display: flex;
+       flex-direction: column;
+   }
 }

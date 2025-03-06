@@ -1,76 +1,83 @@
+/* cart.module.css */
+
 .cart_container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: #f3f3f3;
 }
 
 .item_container {
-  flex: 2;
-  background: #fff;
-  padding: 20px;
+  width: 70%;
+  background: white;
+  padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cart_product {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  justify-content: space-between;
+  padding: 10px 0;
   border-bottom: 1px solid #ddd;
 }
 
 .cart_addsub {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .btn {
-  background-color: transparent;
+  background: #ff9900;
   border: none;
+  padding: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.2s;
+  color: white;
+  font-size: 16px;
 }
 
 .btn:hover {
-  transform: scale(1.1);
+  background: #e68a00;
 }
 
 .checkout_container {
-  flex: 1;
-  background: #f3f3f3;
-  padding: 20px;
+  margin-top: 15px;
+  width: 70%;
+  background: white;
+  padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.checkout_container p {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.checkout_container input {
-  margin-right: 5px;
-}
-
-.checkout_container a {
+.checkout_btn {
   display: inline-block;
-  background-color: #ff9900;
+  background: #ff9900;
   color: white;
-  padding: 10px 15px;
+  padding: 8px 16px;
+  border-radius: 4px;
   text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.2s;
+  font-size: 16px;
+  margin-top: 8px;
 }
 
-.checkout_container a:hover {
-  background-color: #f78d00;
+.checkout_btn:hover {
+  background: #e68a00;
+}
+
+.gift_option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.empty_cart {
+  text-align: center;
+  color: #555;
+  font-size: 16px;
 }

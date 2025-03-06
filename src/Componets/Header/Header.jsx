@@ -8,11 +8,12 @@ import { useContext } from "react";
 import { DataContext } from "../../Componets/DataProvider/DataProvidere";
 
 function Header() {
+  // eslint-disable-next-line no-unused-vars
   const [{ basket },dispatch] = useContext(DataContext);
   const totalProduct = basket.reduce((sum, item) => sum + item.amount, 0);
 
   return (
-    <>
+    <section className={style.fixed}>
       <div className={style.header_container}>
         <div className={style.logo_container}>
           <Link to="/">
@@ -24,7 +25,7 @@ function Header() {
             </span>
             <div>
               <p>Deliver to</p>
-              <span>San Francisco, CA</span>
+              <span>San Francisco</span>
             </div>
           </div>
         </div>
@@ -70,7 +71,7 @@ function Header() {
         </div>
       </div>
       <LowerHeader />
-    </>
+    </section>
   );
 }
 
