@@ -33,7 +33,7 @@ function Cart() {
       <section className={style.cart_container}>
         <div className={style.item_container}>
           <h2>Hello</h2>
-          <h3>Your Shoping Cart</h3>
+          <h3>Your Shopping Cart</h3>
           <hr />
           {basket?.lenght === 0 ? (
             <p>Oh! Your basket is empty, pls add item!</p>

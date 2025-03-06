@@ -6,7 +6,6 @@ import ProductCard from "../../Componets/Product/ProductCard";
 import { productUrl } from "../../Api/endepoint";
 import style from "./Results.module.css";
 import Loader from "../../Componets/Loader/Loader";
-
 function Results() {
   const { categoryName } = useParams();
   const [results, setResults] = useState([]);
