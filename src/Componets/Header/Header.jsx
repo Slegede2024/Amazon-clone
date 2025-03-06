@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import style from "./Header.module.css";
 import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
@@ -65,7 +66,8 @@ function Header() {
             <span>& Orders</span>
           </Link>
           <Link to="/cart" className={style.cart}>
-            <BiCart size={35} />
+            {/* <BiCart size={35} /> */}
+            <img src="cart2.png" alt="" />
             <span>{totalProduct}</span>
           </Link>
         </div>
