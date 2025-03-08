@@ -1,83 +1,119 @@
-/* cart.module.css */
+/* cart.module.css - Amazon-Style Cart */
 
 .cart_container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
-  background-color: #f3f3f3;
+  padding: 20px;
+  background-color: #eaeded;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
 .item_container {
-  width: 70%;
-  background: white;
-  padding: 15px;
+  width: 95%;
+  max-width: 900px;
+  background: #fff;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .cart_product {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  border-bottom: 1px solid #d5d9d9;
+}
+
+.cart_product img {
+  width: 60px; /* Amazon-style image size */
+  height: auto;
+  border-radius: 3px;
+}
+
+.cart_product_info {
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+.product_title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f1111;
+  margin-bottom: 5px;
+}
+
+.product_price {
+  font-size: 14px;
+  color: #b12704;
+  font-weight: 600;
 }
 
 .cart_addsub {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .btn {
-  background: #ff9900;
-  border: none;
-  padding: 6px;
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  padding: 6px 10px;
   border-radius: 4px;
   cursor: pointer;
-  color: white;
-  font-size: 16px;
+  color: #111;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.2s ease-in-out;
 }
 
 .btn:hover {
-  background: #e68a00;
+  background: #f7ca00;
 }
 
 .checkout_container {
-  margin-top: 15px;
-  width: 70%;
-  background: white;
-  padding: 15px;
+  margin-top: 20px;
+  width: 95%;
+  max-width: 900px;
+  background: #fff;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 .checkout_btn {
   display: inline-block;
-  background: #ff9900;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
+  background: #ffa41c;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 6px;
   text-decoration: none;
-  font-size: 16px;
-  margin-top: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  border: 1px solid #ff8f00;
+  transition: background 0.2s ease-in-out;
 }
 
 .checkout_btn:hover {
-  background: #e68a00;
+  background: #ff8f00;
 }
 
 .gift_option {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-top: 8px;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 .empty_cart {
   text-align: center;
-  color: #555;
+  color: #565959;
   font-size: 16px;
+  font-weight: 500;
+  padding: 20px;
 }

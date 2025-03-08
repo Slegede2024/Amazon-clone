@@ -3,7 +3,7 @@ export const catagoryinfo = [
     id: 10,
     title: "SanDisk SSD ",
     category: "electronics",
-    imageLink: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
+    imageLink: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
   },
   {
     id: 7,

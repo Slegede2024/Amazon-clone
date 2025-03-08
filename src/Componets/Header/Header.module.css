@@ -38,10 +38,11 @@
 }
 .delivery p {
   font-size: 10px;
+  font-weight: bold;
 }
 .delivery span {
   margin-top: auto;
-  font-size: 15px;
+  font-size: 17px;
 }
 .search {
   display: flex;
@@ -121,10 +122,10 @@
   position: absolute;
   font-weight: 800;
   font-family: sans-serif;
-  top: 2px;
-  font-size: 19px;
+  top: -3px;
+  font-size: 22px;
   /* background-color: #131921; */
-  left: 24px;
+  left: 16px;
   color: orange;
   z-index: 100;
 }
