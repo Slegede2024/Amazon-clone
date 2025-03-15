@@ -17,6 +17,7 @@ function ProductCard({ data, flex, renderDesc, renderADD }) {
       item: { image, title, id, rating, price, description },
     });
   };
+  
   return (
     <div
       className={`${style.card_container} ${flex ? style.product_flexed : ""}`}

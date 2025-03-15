@@ -2,15 +2,17 @@
 import style from "./Header.module.css";
 import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
-import { BiCart } from "react-icons/bi";
+import cartImage from "../../Componets/Header/Image/cart2.png";
+// import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext } from "../../Componets/DataProvider/DataProvidere";
+import { auth} from "../../Utility/firebase"
 
 function Header() {
   // eslint-disable-next-line no-unused-vars
-  const [{ basket },dispatch] = useContext(DataContext);
+  const [{user, basket },dispatch] = useContext(DataContext);
   const totalProduct = basket.reduce((sum, item) => sum + item.amount, 0);
 
   return (
@@ -55,20 +57,29 @@ function Header() {
               </select>
             </div>
           </div>
-          <Link to="/auth">
+          <Link to={!user && "/auth"}>
             <div>
-              <p>Hello, sign in</p>
-              <span>Account and List</span>
+              {user ? (
+                <>
+                  <p>Hello, {user?.email?.split("@")[0]} </p>
+                  <span onClick={()=>auth.signOut()}>Sign Out</span>
+                </>
+              ) : (
+                <>    
+                    <p>Hello , sign in</p>
+                    <span>Account and List</span>
+                </>
+              )}
             </div>
+            
           </Link>
           <Link to="/orders">
             <p>Returns</p>
             <span>& Orders</span>
           </Link>
           <Link to="/cart" className={style.cart}>
-            <BiCart size={35} />
-            {/* <img src="cart2.png" alt="" /> */}
-            <span>{totalProduct}</span>
+            {/* <BiCart size={35} /> */}
+            <img src={cartImage} alt="Cart" />;<span>{totalProduct}</span>
           </Link>
         </div>
       </div>

@@ -83,9 +83,3 @@ margin-right: 40px;
 }
 
 
-@media screen and (max-width: 768px) {
-   .product_flexed{
-       display: flex;
-       flex-direction: column;
-   }
-}

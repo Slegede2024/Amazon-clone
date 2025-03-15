@@ -1,0 +1,78 @@
+/* Payment.module.css */
+
+.payment__header {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f3f3f3;
+  text-align: center;
+}
+
+.payment {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.flex h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.flex div {
+  font-size: 16px;
+  color: #333;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+  margin: 15px 0;
+}
+
+small {
+  color: red;
+}
+
+button {
+  background-color: #ffd814;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #f7ca00;
+}
+
+.payment__image {
+  width: 100px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 768px) {
+  .payment {
+    padding: 15px;
+  }
+  .flex {
+    flex-direction: column;
+  }
+}

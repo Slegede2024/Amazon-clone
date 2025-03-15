@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import style from "./auth.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../Utility/firebase";
 import { DataContext } from "../../Componets/DataProvider/DataProvidere";
 import {
@@ -18,6 +18,9 @@ function Auth() {
 
   const [{ user }, dispatch] = useContext(DataContext);
   const navigate = useNavigate();
+  const navStateData = useLocation();
+  console.log(navStateData);
+  
 
   console.log("User state from context:", user);
   console.log("Email:", email, "Password:", password);
@@ -25,36 +28,36 @@ function Auth() {
   const authHandler = (e) => {
     e.preventDefault();
     const action = e.target.name; // Get button name (signIn or signUp)
-    console.log("Button clicked:", action);
+    // console.log("Button clicked:", action);
 
     setLoading((prev) => ({ ...prev, [action]: true }));
-    console.log("Loading state updated:", loading);
+    // console.log("Loading state updated:", loading);
 
     if (action === "signIn") {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          console.log("Sign-in successful:", userCredential.user);
+          // console.log("Sign-in successful:", userCredential.user);
           dispatch({ type: Type.SET_USER, user: userCredential.user });
           setLoading((prev) => ({ ...prev, signIn: false }));
           setError("");
-          navigate("/");
+          navigate(navStateData?.state?.redirect || "/");
         })
         .catch((err) => {
-          console.error("Sign-in error:", err);
+          // console.error("Sign-in error:", err);
           setError(err.message);
           setLoading((prev) => ({ ...prev, signIn: false }));
         });
     } else {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          console.log("Account created successfully:", userCredential.user);
+          // console.log("Account created successfully:", userCredential.user);
           dispatch({ type: Type.SET_USER, user: userCredential.user });
           setError("");
           setLoading((prev) => ({ ...prev, signUp: false }));
-          navigate("/");
+          navigate(navStateData?.state?.redirect || "/");
         })
         .catch((err) => {
-          console.error("Sign-up error:", err);
+          // console.error("Sign-up error:", err);
           setError(err.message);
           setLoading((prev) => ({ ...prev, signUp: false }));
         });
@@ -63,7 +66,7 @@ function Auth() {
 
   return (
     <section className={style.login}>
-      <Link to="/amazon-clone">
+      <Link to="/">
         <img src="/amazon_logo_black.png" alt="Amazon Logo" />
       </Link>
       <div className={style.loginContainer}>

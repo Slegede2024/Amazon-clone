@@ -16,6 +16,8 @@ function Product() {
         console.log(err);
       });
   }, []);
+  // console.log(products);
+  
   return (
     <div className={style.product_contianer}>
       {products?.map((single_product, i) => {

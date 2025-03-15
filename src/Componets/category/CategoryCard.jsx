@@ -4,7 +4,7 @@ import style from "../category/Category.module.css";
 import { Link } from "react-router-dom";
 
 function CategoryCard({data}) {
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className={style.catagory}>
