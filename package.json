@@ -1,5 +1,6 @@
 {
-  "name": "amazon_clone",
+  "name": "Amazon-clone",
+  "homepage": "https://github.com/Slegede2024/Amazon-clone.git",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +12,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://github.com/Slegede2024/Amazon-clone.git",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
