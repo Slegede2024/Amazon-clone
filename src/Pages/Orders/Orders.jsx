@@ -15,7 +15,7 @@ function Orders() {
     const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-if(user){
+if(user){ 
    db.collection("users")
     .doc(user.uid)
     .collection("orders")
@@ -39,12 +39,7 @@ if(user){
       <section className={classes.container}>
         <div className={classes.orders__container}>
           <h2>Your Orders</h2>
-          {orders?.length== 0 && <div style={{padding:"20px"}}>You don't have any orders yet</div>
-
-
-
-          }
-
+         {orders?.length== 0 && <div style={{padding:"20px"}}>You don't have any orders yet</div>}
 
 
 
