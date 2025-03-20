@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext } from "../../Componets/DataProvider/DataProvidere";
 import { auth} from "../../Utility/firebase"
+import amazonLogo from "../../Componets/Header/Image/amazon_logo_white.png";
 
 function Header() {
   // eslint-disable-next-line no-unused-vars
@@ -20,7 +21,7 @@ function Header() {
       <div className={style.header_container}>
         <div className={style.logo_container}>
           <Link to="/">
-            <img src="/amazon_logo_white.png" alt="Amazon Logo" />
+            <img src={amazonLogo} alt="Amazon Logo" />
           </Link>
           <div className={style.delivery}>
             <span>
@@ -62,16 +63,15 @@ function Header() {
               {user ? (
                 <>
                   <p>Hello, {user?.email?.split("@")[0]} </p>
-                  <span onClick={()=>auth.signOut()}>Sign Out</span>
+                  <span onClick={() => auth.signOut()}>Sign Out</span>
                 </>
               ) : (
-                <>    
-                    <p>Hello , sign in</p>
-                    <span>Account and List</span>
+                <>
+                  <p>Hello , sign in</p>
+                  <span>Account and List</span>
                 </>
               )}
             </div>
-            
           </Link>
           <Link to="/orders">
             <p>Returns</p>

@@ -13,28 +13,30 @@ import { DataProvider } from "./Componets/DataProvider/DataProvidere";
 
 function App() {
   const [{ user }, dispatch] = useContext(DataContext);
-  // console.log(user)
+
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      console.log(authUser, "from firebase");
+    // Firebase authentication listener
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        console.log(authUser, "from in");
         dispatch({
           type: Type.SET_USER,
           user: authUser,
         });
       } else {
-        console.log(authUser, "from null");
         dispatch({
           type: Type.SET_USER,
           user: null,
         });
       }
     });
-  }, []);
+
+    // Clean up the listener when component unmounts
+    return () => unsubscribe();
+  }, [dispatch]);
+
   return (
     <div>
-      <Routing />
+      <Routing /> {/* Keep this */}
     </div>
   );
 }

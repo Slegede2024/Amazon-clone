@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import style from "./auth.module.css";
+import amazonLogo from "../../Componets/Header/Image/amazon_logo_black.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../Utility/firebase";
 import { DataContext } from "../../Componets/DataProvider/DataProvidere";
@@ -67,7 +68,7 @@ function Auth() {
   return (
     <section className={style.login}>
       <Link to="/">
-        <img src="/amazon_logo_black.png" alt="Amazon Logo" />
+        <img src={amazonLogo} alt="Amazon Logo" />
       </Link>
       <div className={style.loginContainer}>
         <h1>Sign In</h1>

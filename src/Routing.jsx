@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Landing from "./Pages/Landing/Landing";
+import { Routes, Route } from "react-router-dom";
 import Auth from "./Pages/Auth/Auth";
 import Orders from "./Pages/Orders/Orders";
 import Cart from "./Pages/Cart/Cart";
@@ -16,39 +17,38 @@ const stripePromise = loadStripe(
 
 function Routing() {
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/auth" element={<Auth />} />
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/auth" element={<Auth />} />
+      <Route path="/cart" element={<Cart />} />
 
-          <Route path="/cart" element={<Cart />} />
-          <Route
-            path="/Payments"
-            element={
-              <ProtectedRoute
-                msg={"you must log in to pay"}
-                redirect={"/payments"}
-              >
-                <Elements stripe={stripePromise}>
-                  <Payment />
-                </Elements>
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/orders" element={
-            <ProtectedRoute
-                msg={"you must log in to see your orders"}
-                redirect={"/orders"}>
+      {/* Protected routes */}
+      <Route
+        path="/payments"
+        element={
+          <ProtectedRoute msg={"You must log in to pay"} redirect={"/auth"}>
+            <Elements stripe={stripePromise}>
+              <Payment />
+            </Elements>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/orders"
+        element={
+          <ProtectedRoute
+            msg={"You must log in to see your orders"}
+            redirect={"/auth"}
+          >
             <Orders />
           </ProtectedRoute>
-          } 
-          />
-          <Route path="/category/:categoryName" element={<Results />} />
-          <Route path="/products/:productId" element={<ProductDetail />} />
-        </Routes>
-      </Router>
-    </div>
+        }
+      />
+
+      {/* Other Routes */}
+      <Route path="/category/:categoryName" element={<Results />} />
+      <Route path="/products/:productId" element={<ProductDetail />} />
+    </Routes>
   );
 }
 
